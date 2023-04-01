@@ -4,7 +4,7 @@ import React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const button = tv({
-  base: "px-6 py-2 bg-gradient-to-tr  bg-primaryColor rounded-full w-fit from-gradientStart to-gradientEnd text-white",
+  base: "px-6 py-2  bg-primaryColor rounded-full w-fit  text-white",
   variants: {
     full: {
       true: "w-full",
@@ -20,20 +20,17 @@ export const button = tv({
       md: "text-md px-6 py-2",
       lg: "text-lg px-8 py-3",
     },
-    outline: {
-      true: "",
+    variant: {
+      primary: "bg-gradient-to-tr from-gradientStart to-gradientEnd ",
+      outline:
+        "border border-blue-500 text-blue-500",
     },
   },
-  compoundVariants: [
-    {
-      outline: true,
-      className: "border border-blue-500 text-blue-500",
-    },
-  ],
   defaultVariants: {
     full: false,
     radii: "pill",
     size: "md",
+    variant: "primary",
   },
 });
 
@@ -41,11 +38,11 @@ type ButtonVariants = VariantProps<typeof button>;
 
 type polyMorph =
   | {
-      as: "button";
-      href: never;
+      as?: "button";
+      href?: never;
     }
   | {
-      as: "a";
+      as?: "a";
       href: string;
     };
 interface ButtonProps extends ButtonVariants {
@@ -53,7 +50,12 @@ interface ButtonProps extends ButtonVariants {
 }
 
 export const Button = (props: ButtonProps & polyMorph) => {
-  return <button className={button(props)}>{props.children}</button>;
+  const Component = props.as || "button";
+  return (
+    <Component href={props.href} className={button(props)}>
+      {props.children}
+    </Component>
+  );
 };
 
 export default Button;
