@@ -3,9 +3,9 @@ import { Heading } from ".";
 
 function About() {
   return (
-    <>
+    <div className="container mx-auto px-4">
       <Heading text="About Me" />
-      <p className="text-center py-6 px-24">
+      <p className="text-center py-6 ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam hic
         voluptas alias laborum ad et necessitatibus, labore natus assumenda at
         obcaecati explicabo commodi maiores debitis sit. Inventore soluta animi
@@ -30,7 +30,7 @@ function About() {
           <p>Commit Message</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

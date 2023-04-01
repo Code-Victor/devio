@@ -10,7 +10,9 @@ function Header() {
       <div className="flex space-x-12 items-center">
         <a href="www.test.com">About</a>
         <a href="www.test.com">Portfolio</a>
-        <Button url="www.text.com" text="Contact me" />
+        <Button as="a" href="www.text.com">
+          Contact me
+        </Button>
       </div>
     </nav>
   );
