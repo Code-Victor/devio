@@ -4,3 +4,8 @@ export { default as Header } from "./Header";
 export { default as Heading } from "./Heading";
 export { default as Hero } from "./Hero";
 export { default as About } from "./About";
+export { default as Portfolio } from "./Portfolio";
+export { default as ProjectItem } from "./ProjectItem";
+export { default as Projects } from "./Projects";
+export { default as Technologies } from "./Technologies";
+export { default as Cta } from "./Cta";

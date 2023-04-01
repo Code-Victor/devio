@@ -5,16 +5,17 @@ import image from "../assets/imgs/hero.svg";
 
 function Hero() {
   return (
-    <div className="relative h-[calc(100vh_-_80px)] flex justify-center flex-col">
+    <div className="relative min-h-[calc(100vh_-_80px)] flex justify-center flex-col">
       <img
         src="/imgs/hero-bg.png"
         alt="hero-pattern"
         className="absolute top-0 left-0 w-full h-full z-0 object-cover"
       />
-      <div className="container mx-auto flex items center relative justify-between py-6 px-24 items-center gap-8 pt-6 bg-primary/80 h-full">
-        <div className="flex flex-col gap-4 max-w-xl">
+      <div className="bg-primary/80 absolute top-0 left-0 w-full h-full z-0 "></div>
+      <div className="container mx-auto flex flex-col md:flex-row items-center relative md:justify-between py-6 px-4 lg:px-24 md:px-6  gap-8 pt-6  ">
+        <div className="flex-1 flex flex-col items-center md:items-start gap-4 max-w-xl">
           <p>Hello, I'm</p>
-          <p className="text-4xl font-semibold">Christopher Alade</p>
+          <p className="text-5xl font-semibold">Christopher Alade</p>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi
             excepturi laboriosam sed pariatur, voluptatem minima consequuntur
@@ -24,7 +25,7 @@ function Hero() {
             Contact me
           </Button>
         </div>
-        <div>
+        <div className="flex-1 p-2 rounded-full bg-gradient-to-br from-gradientStart to-gradientEnd">
           <img src={image} alt="" className="rounded-full" />
         </div>
       </div>
