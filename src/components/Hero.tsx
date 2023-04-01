@@ -25,8 +25,10 @@ function Hero() {
             Contact me
           </Button>
         </div>
-        <div className="flex-1 p-2 rounded-full bg-gradient-to-br from-gradientStart to-gradientEnd">
-          <img src={image} alt="" className="rounded-full" />
+        <div className="flex-">
+          <div className="p-2 rounded-full w-fit bg-gradient-to-br md:self-end from-gradientStart to-gradientEnd">
+            <img src={image} alt="" className="rounded-full" />
+          </div>
         </div>
       </div>
     </div>

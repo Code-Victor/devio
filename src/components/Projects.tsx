@@ -9,6 +9,9 @@ function Projects() {
       <ProjectItem />
       <ProjectItem />
       <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
+      <ProjectItem />
     </div>
   );
 }
