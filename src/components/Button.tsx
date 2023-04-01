@@ -4,7 +4,7 @@ import React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const button = tv({
-  base: "px-6 py-2 bg-gradient-to-tr  bg-primaryColor rounded-full w-fit from-gradientStart to-gradientEnd text-white",
+  base: "px-6 py-2  bg-primaryColor rounded-full w-fit  text-white",
   variants: {
     full: {
       true: "w-full",
@@ -20,20 +20,17 @@ export const button = tv({
       md: "text-md px-6 py-2",
       lg: "text-lg px-8 py-3",
     },
-    outline: {
-      true: "",
+    variant: {
+      primary: "bg-gradient-to-tr from-gradientStart to-gradientEnd ",
+      outline:
+        "border border-blue-500 text-blue-500",
     },
   },
-  compoundVariants: [
-    {
-      outline: true,
-      className: "border border-blue-500 text-blue-500",
-    },
-  ],
   defaultVariants: {
     full: false,
     radii: "pill",
     size: "md",
+    variant: "primary",
   },
 });
 
