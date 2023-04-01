@@ -3,9 +3,9 @@ import { Button } from ".";
 
 function Cta() {
   return (
-    <div className="text-center p-12 relative ">
+    <div className="text-center p-24 relative ">
       <img
-        src="/imgs/hero-bg.png"
+        src="/imgs/cta.png"
         alt="hero-pattern"
         className="absolute top-0 left-0 w-full h-full z-0 object-cover"
       />

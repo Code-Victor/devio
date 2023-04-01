@@ -6,6 +6,7 @@ import {
   Portfolio,
   Technologies,
   Cta,
+  Footer,
 } from "../components";
 
 function Homepage() {
@@ -17,6 +18,7 @@ function Homepage() {
       <Portfolio />
       <Technologies />
       <Cta />
+      <Footer />
     </div>
   );
 }
