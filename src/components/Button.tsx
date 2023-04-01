@@ -53,7 +53,12 @@ interface ButtonProps extends ButtonVariants {
 }
 
 export const Button = (props: ButtonProps & polyMorph) => {
-  return <button className={button(props)}>{props.children}</button>;
+  const Component = props.as || "button";
+  return (
+    <Component href={props.href} className={button(props)}>
+      {props.children}
+    </Component>
+  );
 };
 
 export default Button;
