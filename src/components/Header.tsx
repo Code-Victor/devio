@@ -3,7 +3,7 @@ import React from "react";
 import Button from "./Button";
 function Header() {
   return (
-    <nav className="relative container mx-auto py-6 px-24 flex items-center justify-between text-lg">
+    <nav className="relative container mx-auto h-20 px-24 flex items-center justify-between text-lg bg-secondary text-white">
       <div className="">
         <p>Devchris</p>
       </div>

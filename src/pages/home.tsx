@@ -3,7 +3,7 @@ import { Header, Hero, About } from "../components";
 
 function Homepage() {
   return (
-    <div>
+    <div className="bg-primary text-white">
       <Header />
       <Hero />
       <About />
