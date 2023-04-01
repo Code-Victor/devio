@@ -41,11 +41,11 @@ type ButtonVariants = VariantProps<typeof button>;
 
 type polyMorph =
   | {
-      as: "button";
-      href: never;
+      as?: "button";
+      href?: never;
     }
   | {
-      as: "a";
+      as?: "a";
       href: string;
     };
 interface ButtonProps extends ButtonVariants {
