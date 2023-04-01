@@ -14,7 +14,9 @@ function Hero() {
           excepturi laboriosam sed pariatur, voluptatem minima consequuntur
           cupiditate odit libero rerum.
         </p>
-        <Button url="www.text.com" text="Contact me" />
+        <Button as="a" href="www.text.com">
+          Contact me
+        </Button>
       </div>
       <div>
         <img src={image} alt="" className="rounded-full" />
