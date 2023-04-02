@@ -135,7 +135,7 @@ function Signup() {
 
           <p className="text-center text-white">
             Don’t have an account ?{" "}
-            <span className="text-blue-400 text-center">Sign up</span>
+            <span className="text-blue-400 text-center">Sign in</span>
           </p>
         </div>
       </div>
