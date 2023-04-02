@@ -6,6 +6,7 @@ import {
   Portfolio,
   Technologies,
   Cta,
+  Footer,
 } from "../components";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ListResponse, Repo } from "../types";
@@ -44,7 +45,12 @@ function Homepage() {
       <About bio={userData.large_bio} username={userData.github_username} />
       <Portfolio repos={loaderRes.repos} />
       <Technologies />
+<<<<<<< HEAD
       <Cta {...socialLinks} />
+=======
+      <Cta />
+      <Footer />
+>>>>>>> bd2653454f00d980e1f83452790ff1e293d879c5
     </div>
   );
 }

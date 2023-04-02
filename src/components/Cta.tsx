@@ -15,16 +15,16 @@ function Cta({
   github?: string;
 }) {
   return (
-    <div className="text-center p-12 relative ">
+    <div className="text-center md:p-24 p-4 relative ">
       <img
-        src="/imgs/hero-bg.png"
+        src="/imgs/cta.png"
         alt="hero-pattern"
         className="absolute top-0 left-0 w-full h-full z-0 object-cover"
       />
       <div className="bg-primary/80 absolute top-0 left-0 w-full h-full z-0 "></div>
       <div className="isolate">
         <p className="text-xl pb-3">Need me for a Project ?</p>
-        <p className="text-5xl pb-12">Get in touch</p>
+        <p className="text-3xl md:text-5xl pb-12">Get in touch</p>
         <Button as="a" href="www.text.com">
           Contact me
         </Button>

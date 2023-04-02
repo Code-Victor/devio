@@ -6,7 +6,7 @@ import ProjectItem from "./ProjectItem";
 
 function Portfolio({ repos }: { repos: Repo[] }) {
   return (
-    <div className="container mx-auto pb-12 text-center py-6 px-24">
+    <div className="container mx-auto pb-12 text-center py-6 md:px-24 px-2">
       <Heading text="My Portfolio" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center xl:grid-cols-4  pb-12 gap-4">
         {repos.slice(0, 6).map((repo) => (
