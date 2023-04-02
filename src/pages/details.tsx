@@ -10,6 +10,7 @@ import { useAuth } from "../hooks";
 import { GithubUser } from "../types";
 import { databases, Server } from "../../appwrite.config";
 import { Permission, Role } from "appwrite";
+import { technologies } from "../components/Technologies";
 
 const validationSchema = z.object({
   pageName: z.string().min(1, { message: "Page Name is required" }),
@@ -57,13 +58,16 @@ function Details() {
   });
 
   const navigate = useNavigate();
+  const [technologiesSelected, setTechnologiesSelected] = React.useState<
+    typeof technologies[number][]
+  >([]);
   const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
     //use appwrite to push to database
     if (user) {
       try {
         console.log("submitted");
         const githubUser = await getUser(user.name);
-        const {pageName,...withOutName} = data;
+        const { pageName, ...withOutName } = data;
         await databases.createDocument(
           Server.databaseID,
           Server.collectionID,
@@ -72,6 +76,7 @@ function Details() {
             name: data.pageName,
             github_username: user.name,
             avatar_url: githubUser.avatar_url,
+            tools: technologiesSelected,
             ...withOutName,
           },
           [Permission.write(Role.user(user["$id"]))]
@@ -124,6 +129,38 @@ function Details() {
                   {errors.short_bio?.message}
                 </p>
               )}
+            </div>
+            <div className="">
+              <label className="text-white">Technologies</label>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => {
+                  let isSelected = technologiesSelected.includes(tech);
+                  return (
+                    <button
+                      key={tech}
+                      onClick={() => {
+                        if (isSelected) {
+                          setTechnologiesSelected(
+                            technologiesSelected.filter((t) => t !== tech)
+                          );
+                        } else {
+                          setTechnologiesSelected([
+                            ...technologiesSelected,
+                            tech,
+                          ]);
+                        }
+                      }}
+                      className={
+                        isSelected
+                          ? "bg-gradient-to-tr from-gradientStart to-gradientEnd rounded-full text-xs px-1 py-0.5 text-white"
+                          : "bg-gray-500 rounded-full text-xs px-1 py-0.5 text-white"
+                      }
+                    >
+                      {tech}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="long-bio" className="text-white">

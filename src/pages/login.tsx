@@ -5,6 +5,7 @@ import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../hooks";
+import { Link } from "react-router-dom";
 
 const validationSchema = z.object({
   email: z.string().min(1, { message: "Email is required" }).email({
@@ -81,7 +82,9 @@ function Login() {
 
           <p className="text-center text-white">
             Don’t have an account ?{" "}
-            <span className="text-blue-400 text-center">Sign up</span>
+            <span className="text-blue-400 text-center">
+              <Link to="/signup">Sign up</Link>
+            </span>
           </p>
         </div>
       </div>

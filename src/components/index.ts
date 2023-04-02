@@ -6,7 +6,6 @@ export { default as Hero } from "./Hero";
 export { default as About } from "./About";
 export { default as Portfolio } from "./Portfolio";
 export { default as ProjectItem } from "./ProjectItem";
-export { default as Projects } from "./Projects";
 export { default as Technologies } from "./Technologies";
 export { default as Cta } from "./Cta";
 export { default as Footer } from "./Footer";

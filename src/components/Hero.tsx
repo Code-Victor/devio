@@ -29,8 +29,14 @@ function Hero({
             Contact me
           </Button>
         </div>
-        <div className="p-2 rounded-full w-fit bg-gradient-to-br md:self-end from-gradientStart to-gradientEnd md:w-60 lg:w-full">
-          <img src={avatar_url} alt="" className="rounded-full" />
+        <div className="flex-1">
+          <div className="p-2 rounded-full aspect-square w-[80%] bg-gradient-to-br md:self-end from-gradientStart to-gradientEnd ">
+            <img
+              src={avatar_url}
+              alt=""
+              className="rounded-full w-full h-full"
+            />
+          </div>
         </div>
       </div>
     </div>

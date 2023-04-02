@@ -15,7 +15,7 @@ function Cta({
   github?: string;
 }) {
   return (
-    <div className="text-center md:p-24 p-4 relative ">
+    <div className="text-center md:p-24 p-4 relative " id="contact">
       <img
         src="/imgs/cta.png"
         alt="hero-pattern"

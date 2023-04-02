@@ -1,3 +1,5 @@
+import { Technologies } from "./components/Technologies";
+
 export interface GithubUser {
   login: string;
   id: number;
@@ -42,7 +44,7 @@ export interface Document {
   github_username: string;
   large_bio: string;
   short_bio: string;
-  tools: any[];
+  tools: Technologies[];
   linkedin_url: string;
   instagram_url: string;
   twitter_url: string;

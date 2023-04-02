@@ -35,22 +35,22 @@ function Homepage() {
     </div>;
   }
   return (
-    <div className="bg-primary text-white">
+    <div className="bg-primary text-white scroll-smooth">
       <Header title={userData.github_username} />
       <Hero
         name={userData.name}
         bio={userData.short_bio}
         avatar_url={userData.avatar_url}
       />
-      <About bio={userData.large_bio} username={userData.github_username} />
+      <About
+        bio={userData.large_bio}
+        username={userData.github_username}
+        repo_count={loaderRes.repo_length}
+      />
       <Portfolio repos={loaderRes.repos} />
-      <Technologies />
-<<<<<<< HEAD
+      <Technologies tools={userData.tools} />
       <Cta {...socialLinks} />
-=======
-      <Cta />
       <Footer />
->>>>>>> bd2653454f00d980e1f83452790ff1e293d879c5
     </div>
   );
 }
