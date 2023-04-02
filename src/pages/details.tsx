@@ -15,11 +15,11 @@ import { technologies } from "../components/Technologies";
 const validationSchema = z.object({
   pageName: z.string().min(1, { message: "Page Name is required" }),
   short_bio: z.string().min(1, { message: "shortBio is required" }),
-  large_bio: z.string().min(1, { message: "longBio is required" }),
-  twitter_url: z.string().min(1, { message: "twitter is required" }),
-  linkedin_url: z.string().min(1, { message: "linkedin is required" }),
-  instagram_url: z.string().min(1, { message: "instagram is required" }),
-  facebook_url: z.string().min(1, { message: "facebook is required" }),
+  large_bio: z.string().min(1, { message: "About you is required" }),
+  twitter_url: z.string(),
+  linkedin_url: z.string(),
+  instagram_url: z.string(),
+  facebook_url: z.string(),
 });
 type ValidationSchema = z.infer<typeof validationSchema>;
 
