@@ -8,7 +8,8 @@ function Nav() {
   return (
     <nav className="bg-[#161B22] ">
       <div className="container px-4 mx-auto h-20 flex justify-between items-center">
-        <img src="./Devio.svg" />
+        <a href="https://christopheralade.wixsite.com/devio"><img src="./Devio.svg" /></a>
+        
 
         {user ? (
           <Button
