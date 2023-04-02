@@ -69,6 +69,7 @@ function Details() {
           },
           [Permission.write(Role.user(user["$id"]))]
         );
+        navigate("/user.name");
       } catch (e) {
         console.log("create error", e);
       }
