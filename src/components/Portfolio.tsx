@@ -4,7 +4,7 @@ import Button from "./Button";
 
 function Portfolio() {
   return (
-    <div className="container mx-auto pb-12 text-center py-6 px-24">
+    <div className="container mx-auto pb-12 text-center py-6 md:px-24 px-2">
       <Heading text="My Portfolio" />
       <Projects />
       <Button as="a" href="www.text.com">
