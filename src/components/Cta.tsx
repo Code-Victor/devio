@@ -1,7 +1,19 @@
 import React from "react";
 import { Button } from ".";
 
-function Cta() {
+function Cta({
+  twitter,
+  linkedin,
+  instagram,
+  facebook,
+  github,
+}: {
+  twitter?: string;
+  linkedin?: string;
+  instagram?: string;
+  facebook?: string;
+  github?: string;
+}) {
   return (
     <div className="text-center p-12 relative ">
       <img
@@ -17,11 +29,31 @@ function Cta() {
           Contact me
         </Button>
         <div className="text-center flex gap-12 justify-center pt-12">
-          <img src="/imgs/facebook.svg" alt="Facebook logo" />
-          <img src="/imgs/linkedin.svg" alt="Linkedin logo" />
-          <img src="/imgs/github2.svg" alt="Github logo" />
-          <img src="/imgs/twitter.svg" alt="Twitter logo" />
-          <img src="/imgs/instagram.svg" alt="Insatgram logo" />
+          {facebook && (
+            <a href={facebook} target="_blank">
+              <img src="/imgs/facebook.svg" alt="Facebook logo" />
+            </a>
+          )}
+          {linkedin && (
+            <a href={linkedin} target="_blank">
+              <img src="/imgs/linkedin.svg" alt="Linkedin logo" />
+            </a>
+          )}
+          {github && (
+            <a href={github} target="_blank">
+              <img src="/imgs/github2.svg" alt="Github logo" />
+            </a>
+          )}
+          {twitter && (
+            <a href={twitter} target="_blank">
+              <img src="/imgs/twitter.svg" alt="Twitter logo" />
+            </a>
+          )}
+          {instagram && (
+            <a href={instagram} target="_blank">
+              <img src="/imgs/instagram.svg" alt="Insatgram logo" />
+            </a>
+          )}
         </div>
       </div>
     </div>

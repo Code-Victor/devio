@@ -8,7 +8,7 @@ function useAuth() {
   const [user, setUser] =
     React.useState<null | Models.Account<Models.Preferences>>(null);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = React.useState(false);
   const signup = async (email: string, password: string, name: string) => {
     try {
       const promise = await account.create(uuidv4(), email, password, name);
@@ -19,11 +19,11 @@ function useAuth() {
       console.log(error); //failure
     }
   };
-  const login =  (email: string, password: string) => {
+  const login = (email: string, password: string) => {
     const promise = account.createEmailSession(email, password);
     promise.then(
       function (response) {
-        navigate("/home"); //success
+        navigate("/dashboard"); //success
         console.log(response); // Success
       },
       function (error) {
@@ -32,13 +32,16 @@ function useAuth() {
     );
   };
   const getCurrentUser = async () => {
+    setLoading(true);
     try {
       const promise = await account.get();
       const response = await promise;
       console.log(response);
-      return response; //success
+      return response;//success
     } catch (error) {
-      console.log(error); //failure
+      console.log(error);//failure
+    } finally{
+      setLoading(false);
     }
   };
   React.useEffect(() => {
@@ -61,6 +64,7 @@ function useAuth() {
   return {
     signup,
     login,
+    loading,
     logOut,
     user,
   };

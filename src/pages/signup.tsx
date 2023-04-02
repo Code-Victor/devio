@@ -5,10 +5,12 @@ import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../hooks";
+import { CheckGithubUsername } from "../utils";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = z
   .object({
-    name: z.string().min(1, { message: "Name is required" }),
+    username: z.string().min(1, { message: "Github username is required" }),
     email: z.string().min(1, { message: "Email is required" }).email({
       message: "Must be a valid email",
     }),
@@ -29,13 +31,26 @@ function Signup() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
   });
-  const {signup}= useAuth()
+  const { signup } = useAuth();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<ValidationSchema> = (data) => signup(data.email,data.password,data.name);
+  const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
+    const { username } = data;
+    const isAvailable = await CheckGithubUsername(username);
+    if (!isAvailable) {
+      setError("username", {
+        type: "server",
+        message: "No such github username exists",
+      });
+    } else {
+      signup(data.email, data.password, data.username);
+    }
+  };
 
   return (
     <BaseLayout>
@@ -47,18 +62,18 @@ function Signup() {
           <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="text-white">
-                Name
+                Github Username
               </label>
               <input
                 type="text"
                 id="name"
                 className="border border-gray-500 rounded-md p-2 bg-transparent text-white"
-                {...register("name")}
+                {...register("username")}
               />
-              {errors.name && (
+              {errors.username && (
                 <p className="text-xs italic text-red-500 mt-2">
                   {" "}
-                  {errors.name?.message}
+                  {errors.username?.message}
                 </p>
               )}
             </div>
@@ -113,7 +128,7 @@ function Signup() {
                 </p>
               )}
             </div>
-            <Button  size="lg" full radii="md">
+            <Button size="lg" full radii="md">
               Sign UP
             </Button>
           </form>

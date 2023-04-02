@@ -3,7 +3,15 @@ import { Button } from ".";
 // import styles from "./Hero.module.css";
 import image from "../assets/imgs/hero.svg";
 
-function Hero() {
+function Hero({
+  name,
+  bio,
+  avatar_url,
+}: {
+  name: string;
+  bio: string;
+  avatar_url: string;
+}) {
   return (
     <div className="relative min-h-[calc(100vh_-_80px)] flex justify-center flex-col">
       <img
@@ -15,18 +23,14 @@ function Hero() {
       <div className="container mx-auto flex flex-col md:flex-row items-center relative md:justify-between py-6 px-4 lg:px-24 md:px-6  gap-8 pt-6  ">
         <div className="flex-1 flex flex-col items-center md:items-start gap-4 max-w-xl">
           <p>Hello, I'm</p>
-          <p className="text-5xl font-semibold">Christopher Alade</p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi
-            excepturi laboriosam sed pariatur, voluptatem minima consequuntur
-            cupiditate odit libero rerum.
-          </p>
+          <p className="text-5xl font-semibold">{name}</p>
+          <p>{bio}</p>
           <Button as="a" href="www.text.com">
             Contact me
           </Button>
         </div>
         <div className="flex-1 p-2 rounded-full bg-gradient-to-br from-gradientStart to-gradientEnd">
-          <img src={image} alt="" className="rounded-full" />
+          <img src={avatar_url} alt="" className="rounded-full" />
         </div>
       </div>
     </div>

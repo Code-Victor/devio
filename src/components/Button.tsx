@@ -22,8 +22,7 @@ export const button = tv({
     },
     variant: {
       primary: "bg-gradient-to-tr from-gradientStart to-gradientEnd ",
-      outline:
-        "border border-blue-500 text-blue-500",
+      outline: "border border-blue-500 text-blue-500",
     },
   },
   defaultVariants: {
@@ -47,13 +46,27 @@ type polyMorph =
     };
 interface ButtonProps extends ButtonVariants {
   children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
 }
 
-export const Button = (props: ButtonProps & polyMorph) => {
-  const Component = props.as || "button";
+export const Button = ({
+  as,
+  full,
+  size,
+  radii,
+  variant,
+  children,
+  className,
+  ...others
+}: ButtonProps & polyMorph) => {
+  const Component = as || "button";
   return (
-    <Component href={props.href} className={button(props)}>
-      {props.children}
+    <Component
+      {...others}
+      className={button({ full, size, radii, variant }) + " " + className}
+    >
+      {children}
     </Component>
   );
 };

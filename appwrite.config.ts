@@ -9,8 +9,9 @@ client
 const account = new Account(client);
 const databases = new Databases(client);
 
-export {
-    client,
-    account,
-    databases
-}
+export const Server = {
+  collectionID: "64284b5236fa51bdea40",
+  databaseID: "6428489a7dc0360c55a8",
+};
+
+export { client, account, databases };
