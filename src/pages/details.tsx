@@ -104,7 +104,7 @@ function Details() {
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="short-bio" className="text-white">
-                Short Bio
+                Hero Short Bio
               </label>
               <input
                 type="text"
@@ -120,7 +120,7 @@ function Details() {
               )}
             </div>
             <div className="">
-              <label className="text-white">Technologies</label>
+              <label className="text-white">Tools & Technologies</label>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => {
                   let isSelected = technologiesSelected.includes(tech);
@@ -153,7 +153,7 @@ function Details() {
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="long-bio" className="text-white">
-                login Bio
+                About you 
               </label>
               <input
                 type="text"
