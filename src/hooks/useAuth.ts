@@ -23,7 +23,7 @@ function useAuth() {
     const promise = account.createEmailSession(email, password);
     promise.then(
       function (response) {
-        navigate("/dashboard"); //success
+        navigate("/"); //success
         console.log(response); // Success
       },
       function (error) {
@@ -37,10 +37,10 @@ function useAuth() {
       const promise = await account.get();
       const response = await promise;
       console.log(response);
-      return response;//success
+      return response; //success
     } catch (error) {
-      console.log(error);//failure
-    } finally{
+      console.log(error); //failure
+    } finally {
       setLoading(false);
     }
   };

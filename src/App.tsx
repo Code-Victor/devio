@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Login, Signup, HomePage, Dashboard, Details, Edit } from "./pages";
+import { Login, Signup, HomePage, Dashboard, Details } from "./pages";
 import { databases, Server } from "../appwrite.config";
 import { Query } from "appwrite";
 import { Repo } from "./types";
@@ -15,11 +15,7 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/home",
-    element: <HomePage />,
-  },
-  {
-    path: "/dashboard",
+    path: "/",
     element: <Dashboard />,
   },
   {

@@ -30,7 +30,7 @@ async function getUser(username: string) {
 }
 
 function Details() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const {
     register,
     handleSubmit,
@@ -42,6 +42,10 @@ function Details() {
   });
 
   const navigate = useNavigate();
+
+  if (!loading && !user) {
+    navigate("/login");
+  }
   const [technologiesSelected, setTechnologiesSelected] = React.useState<
     typeof technologies[number][]
   >([]);
