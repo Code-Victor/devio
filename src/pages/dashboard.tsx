@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../hooks";
 import { BaseLayout } from "../Layout";
 import { Button } from "../components";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Dashboard() {
   const { user, loading } = useAuth();
@@ -30,14 +30,10 @@ function Dashboard() {
             </h2>
             <div className="flex gap-4 justify-center">
               <Button radii="md">
-                <Link to={"/edit"}>Edit Portfolio</Link>
+                <Link to={"/details"}>Edit Portfolio</Link>
               </Button>
-              <Button
-                radii="md"
-                variant="outline"
-                className="text-red-700 border-red-700"
-              >
-                Delete Portfolio
+              <Button radii="md">
+                <Link to={`/${user?.name}`}>View Portfolio</Link>
               </Button>
             </div>
           </div>

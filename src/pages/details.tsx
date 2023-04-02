@@ -39,22 +39,6 @@ function Details() {
     formState: { errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    defaultValues: async () => {
-      //wait 2 seconds before getting the user info
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-
-      const githubUser = await getUser(user?.name!);
-      return {
-        pageName: user?.name || githubUser.login,
-        short_bio: githubUser.bio,
-        large_bio: "tell us about yourself",
-        twitter_url: "",
-        github: "",
-        linkedin_url: "",
-        instagram_url: "",
-        facebook_url: "",
-      };
-    },
   });
 
   const navigate = useNavigate();
@@ -152,8 +136,8 @@ function Details() {
                       }}
                       className={
                         isSelected
-                          ? "bg-gradient-to-tr from-gradientStart to-gradientEnd rounded-full text-xs px-1 py-0.5 text-white"
-                          : "bg-gray-500 rounded-full text-xs px-1 py-0.5 text-white"
+                          ? "bg-gradient-to-tr from-gradientStart to-gradientEnd rounded-full text-xs px-2 py-1 text-white"
+                          : "bg-gray-500 rounded-full text-xs px-2 py-1 text-white"
                       }
                     >
                       {tech}
